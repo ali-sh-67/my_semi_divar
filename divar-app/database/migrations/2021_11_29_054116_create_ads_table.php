@@ -16,10 +16,10 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("user_id");
+            $table->bigInteger("user_id")->unsigned();
             $table->text("description");
             $table->string("image_url")->default(public_path('images/default/ads_image.png'));
-            $table->string("category_id");
+            $table->biginteger("category_id")->unsigned();
             $table->string("price")->nullable();
             $table->string("address");
             $table->string("phone_number_ads" , length:11);
