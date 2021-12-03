@@ -11,12 +11,17 @@ class ad extends Model
 
 
     protected $fillable = [
+        'id',
+        'user_id',
+        'category_id',
         'title',
         'description',
         'image_url',
         'price',
         'address',
         'phone_number_ads',
+        'created_at',
+        'updated_at',
     ];
 
     /**
