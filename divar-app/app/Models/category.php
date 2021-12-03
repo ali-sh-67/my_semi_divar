@@ -11,9 +11,12 @@ class category extends Model
 
 
     protected $fillable = [
+        'id',
         'name',
         'name_en',
         'parent_id',
+        'created_at',
+        'updated_at',
     ];
 
     /**
