@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
 
 class categoryController extends Controller
 {
@@ -39,9 +38,9 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'bail|required|unique:categories|',
-            'name_en'=>'bail|required|unique:categories|regex:([a-z]+)',
-            'parent_id'=>'bail|regex:(^[0-9]*$)|nullable'
+            'name' => 'bail|required|unique:categorys|',
+            'name_en' => 'bail|required|unique:categorys|regex:([a-z]+)',
+            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable'
         ]);
         $category = new Category;
         $category->name = $request->name;
@@ -50,8 +49,8 @@ class categoryController extends Controller
         if ($category->save()) {
             return view('category.store')->with(['category' => $category]);
 
-            $this->validate($request,[
-                'name' => 'required|min:1|max:70|string|unique:categories',
+            $this->validate($request, [
+                'name' => 'required|min:1|max:70|string|unique:categorys',
             ]);
         }
         return; //422

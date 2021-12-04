@@ -9,7 +9,7 @@ class category extends Model
 {
     use HasFactory;
 
-
+    protected $table = 'categorys';//this rename table for change migration name
     protected $fillable = [
         'id',
         'name',
