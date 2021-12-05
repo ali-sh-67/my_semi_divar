@@ -19,6 +19,10 @@ class category extends Model
         'updated_at',
     ];
 
+    public function Ad(){
+        return $this->hasMany(Ad::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
