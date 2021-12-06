@@ -19,7 +19,7 @@
   
     <tr>           
         <td>{{$ad->title}}</td>                  
-        <td><a href="">ویرایش</a></td>
+        <td><a href="{{route('editAd',$ad->id)}}">ویرایش</a></td>
         <td><a href="{{route('deleteAd',$ad->id)}}"" onclick="return confirm('آیتم مورد نظر حذف شود؟');">حذف</a></td>
         <td><a href="{{route('showAd',$ad->id)}}">مشاهده</a></td> 
     </tr>    
