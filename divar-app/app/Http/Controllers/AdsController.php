@@ -66,6 +66,21 @@ class AdsController extends Controller
         $users = Auth::user()->name;  
         return view('Ad.editAd')->with(['id'=>$id])->with(['users'=>$users]);            
     }
+    public function updateAd(Request $request, $id)
+    {
+        $todo = Ad::where('id', $id)->first(); 
+              
+           
+        $todo->title= $request->get('title');
+        $todo->description= $request->get('description');
+        $todo->price= $request->get('price');          
+         
+         $todo->save(); 
+               
+         return redirect(route('indexAd'));   
+    }
+
+
 
     
     
