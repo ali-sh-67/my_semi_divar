@@ -20,10 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Ad/createAd', [AdsController::class, 'createAd'])->name('createAd');
-Route::post('/Ad/storeAd', [AdsController::class, 'storeAd'])->name('storeAd');
-Route::get('/Ad/index', [AdsController::class, 'indexAd'])->name('indexAd');
-Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd');
+Route::get('/Ad/createAd', [AdsController::class, 'createAd'])->name('createAd')->middleware('auth');
+Route::post('/Ad/storeAd', [AdsController::class, 'storeAd'])->name('storeAd')->middleware('auth');
+Route::get('/Ad/index', [AdsController::class, 'indexAd'])->name('indexAd')->middleware('auth');
+Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd')->middleware('auth');
 Route::get('/Ad/deleteAd/{id}',[AdsController::class, 'deleteAd'])->name('deleteAd')->middleware('auth');
 
 
