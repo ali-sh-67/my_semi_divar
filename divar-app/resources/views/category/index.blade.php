@@ -2,6 +2,7 @@
 @section('content')
     <div class="">
 
+
         @foreach ($categories as $category)
             <div>
                 <div>{{$category->name}}</div>

@@ -31,6 +31,10 @@ class User extends Authenticatable
         'updated_at',
     ];
 
+    public function Ad(){
+        return $this->hasMany(Ad::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
