@@ -25,6 +25,7 @@ Route::post('/Ad/storeAd', [AdsController::class, 'storeAd'])->name('storeAd')->
 Route::get('/Ad/index', [AdsController::class, 'indexAd'])->name('indexAd')->middleware('auth');
 Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd')->middleware('auth');
 Route::get('/Ad/deleteAd/{id}',[AdsController::class, 'deleteAd'])->name('deleteAd')->middleware('auth');
+Route::get('/Ad/editAd/{id}',[AdsController::class, 'editAd'])->name('editAd')->middleware('auth');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
