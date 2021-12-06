@@ -64,7 +64,7 @@ class AdsController extends Controller
     public function editAd(Ad $id)
     {   
         $users = Auth::user()->name;  
-        return view('edit')->with(['id'=>$id])->with(['users'=>$users]);            
+        return view('Ad.editAd')->with(['id'=>$id])->with(['users'=>$users]);            
     }
 
     
