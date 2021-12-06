@@ -16,7 +16,8 @@
             </div>
             <div>
                 <div><label>توضیحات:</label></div>
-                <div><input type="text" name="description" placeholder=" توضیحات"></div>
+                <textarea  name="description" placeholder=" توضیحات" ></textarea>
+                
             </div>
             <div>
                 <div><label>تصویر:</label></div>
