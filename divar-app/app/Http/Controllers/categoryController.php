@@ -14,7 +14,8 @@ class categoryController extends Controller
      */
     public function index(Request $request)
     {
-        return view('category.index');
+        $categories=category::root()->get();
+        return view('category.index')->with('categories',$categories);
 
     }
 
@@ -74,9 +75,10 @@ class categoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        return 'edit_category';
+        $category=category::find($id);
+        return view('category.edit')->with('category',$category);
     }
 
     /**
@@ -86,9 +88,22 @@ class categoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update (Request $request, $id)
     {
-        return 'update_category';
+        $category = category::where('id', $id)->first();
+
+        if ($category->id != $request->parent_id) {
+            $category->name = $request->name;
+            $category->parent_id = $request->parent_id;
+            if ($category->save()) {
+
+                $categories=category::root()->get();
+                return view('category.index')->with('categories',$categories);
+            }
+            redirect(view('category.edit')); // 422
+        }
+
+        return; // 401
     }
 
     /**
