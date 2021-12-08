@@ -14,7 +14,7 @@ class AdsController extends Controller
         $users = Auth::user()->name;            
         $id = Auth::user()->id;       
          $ads = Ad::where('user_id',$id)->get();
-        return view('Ad.index')->with(['ads' => $ads]);
+        return view('Ad.pageAd')->with(['ads' => $ads]);
     }
 
    public function createAd()
@@ -24,6 +24,20 @@ class AdsController extends Controller
 
    public function storeAd(Request $request)
     {
+
+        // dd($request->all());
+        // $test=$request->file('image_url')->getSize();
+        // dd($test);
+
+        // $request->validate([
+        //     'image'=>'required|mimes:jpg,png,jpeg|max:5048'
+        // ]);
+
+        $newImageName =time() . '-' . $request->name . '.' . $request->image_url->extension();
+        // $request->image_url->extension();
+        $request->image_url->move(public_path('images'),$newImageName);
+
+        // dd($test);
         $user = Auth::user()->id;
         $category = Auth::user()->id;
         
@@ -32,7 +46,9 @@ class AdsController extends Controller
         'category_id'=>$category,
         'title'=> $request->get('title'),
         'description'=>$request->get('description'),
-        'image_url'=>$request->get('image_url'),
+
+        'image_url'=>$newImageName,
+
         'price'=>$request->get('price'),
         'address'=>$request->get('address'),
         'phone_number_ads'=> $request->get('phone_number_ads'),
