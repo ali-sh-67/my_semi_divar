@@ -7,7 +7,7 @@
             {{$error}}
         @endforeach
 
-        <form method="post" action="{{route('storeAd')}}">
+        <form method="post"  action="{{route('storeAd')}}" enctype="multipart/form-data">
             @csrf
 
             <div>
@@ -21,7 +21,7 @@
             </div>
             <div>
                 <div><label>تصویر:</label></div>
-                <div><input type="text" name="image_url" placeholder="توضیحات"></div>
+                <div><input type="file" name="image_url"></div>
             </div>
             <div>
                 <div><label>قیمت:</label></div>
