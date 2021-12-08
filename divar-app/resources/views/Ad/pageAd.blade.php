@@ -13,7 +13,7 @@
     <div id="myheader" >
         <div id="header_right">
             <div id="header_right_top" >
-                <span id="lock" style="background:{{ asset('/img/lock.png') }}"></span>
+                <span id="lock" ></span>
                   <a class="yekan login" href="">  ورود   </a>
                 <span id="register"></span>
                   <a  class="reg" href=""> ثبت نام کنید   </a>
