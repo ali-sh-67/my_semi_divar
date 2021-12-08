@@ -1,0 +1,111 @@
+@font-face {
+   font-family: 'Byekan' ;
+   src: url('../fonts/Byekan.ttf') format('truetype'),
+   url('../fonts/Byekan.eot?#iefix') format('embedded-opentype');
+}
+
+div, a, p, span, li, ul {
+   text-align: right;
+   direction: rtl;
+}
+
+a {
+   text-decoration: none;
+}
+
+.yekan {
+   font-family: Byekan;
+}
+
+.fontsm {
+   font-size: 10.3pt;
+}
+
+.fontmd {
+   font-size: 11.3pt;
+}
+
+.fontlg {
+   font-size: 17.8pt;
+}
+.body{
+   margin: 0;
+   background: #cccccc;
+}
+.header{
+   background: #fff;
+}
+#myheader{
+   width: 1200px;
+   height: 100px;
+   margin: 0 auto; 
+   padding-top:15px;
+}
+#header_right{
+   width: 720px; 
+   float: right;
+   height: 100px;
+}
+#header_right_top{
+   height: 40px;
+}
+#lock{
+  width: 20px; 
+  height: 20px; 
+  background: url("{{ asset('/img/lock.png') }}");
+  display: block; 
+  float: right;
+}
+.login{
+    float: right;
+    margin-right: 10px;
+}
+#register{
+  width: 20px; 
+  height: 20px; 
+  background: url(img/login.png);
+  display: block; 
+  float: right;
+  margin-right: 25px;
+}
+.reg{
+    float: right;
+    margin-right: 10px;
+}
+#header_right_bottom{
+   height: 50px;
+}
+#search_top{
+  width: 480px;
+  height: 40px;
+  float: right;
+  margin-right: 20px;
+  position: relative ;
+}
+.input{
+   width: 480px ;
+   height: 32px; 
+   margin-top: 2px; 
+   border:1px solid #eee;
+   padding-right: 10px;
+   color:#8C9C98 ;
+   
+}
+#search_pic{
+   width: 42px;
+   height: 35px;
+   background:url(../images/search.png) no-repeat center #ccc; 
+   display: block;
+   position: absolute;
+   left: -13px; top: 2px; 
+
+}
+#main{
+   
+   width: 1200px;
+   height: auto;
+   margin: 17px auto; 
+   padding-top:10px;
+   background: #fff;
+
+}
