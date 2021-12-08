@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreRequest;
 
 class categoryController extends Controller
 {
@@ -36,13 +37,11 @@ class categoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $request->validate([
-            'name' => 'bail|required|unique:categorys|',
-            'name_en' => 'bail|required|unique:categorys|regex:([a-z]+)',
-            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable'
-        ]);
+        // $request->validate([
+           
+        // ]);
         $category = new Category;
         $category->name = $request->name;
         $category->name_en = $request->name_en;
@@ -88,7 +87,7 @@ class categoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update (Request $request, $id)
+    public function update (StoreRequest $request, $id)
     {
         $category = category::where('id', $id)->first();
 
