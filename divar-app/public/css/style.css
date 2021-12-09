@@ -30,7 +30,7 @@ a {
 }
 .body{
    margin: 0;
-   background: #cccccc;
+   background: #e4dcdc;
 }
 .header{
    background: #fff;
@@ -52,7 +52,7 @@ a {
 #lock{
   width: 20px; 
   height: 20px; 
-  background: url("{{ asset('/img/lock.png') }}");
+  background: url(../img/lock.png);
   display: block; 
   float: right;
 }
@@ -63,7 +63,7 @@ a {
 #register{
   width: 20px; 
   height: 20px; 
-  background: url(img/login.png);
+  background: url(../img/login.png);
   display: block; 
   float: right;
   margin-right: 25px;
@@ -94,7 +94,7 @@ a {
 #search_pic{
    width: 42px;
    height: 35px;
-   background:url(../images/search.png) no-repeat center #ccc; 
+   background:url(../img/search.png) no-repeat center #f1e8e8; 
    display: block;
    position: absolute;
    left: -13px; top: 2px; 
@@ -104,8 +104,86 @@ a {
    
    width: 1200px;
    height: auto;
-   margin: 17px auto; 
-   padding-top:10px;
-   background: #fff;
+   margin: 17px auto;    
+   background-color:#e4dcdc;
 
+}
+#create{
+   width:100%;
+   height:380px;
+   border: 1px solid black;
+   margin-top:40px; 
+   background-color:#fff;
+}
+#advert{
+   width: 100%; 
+   height:29px; 
+   border-bottom:1px solid black;
+}
+#nameAdvert{
+   margin-top: 11px;
+   margin-right:10px; 
+   display:block;
+}
+#img{
+   width: 659px;
+   height:277px;
+   float:left;
+}
+#showImg{
+   width:100% ;
+   height:100%;
+}
+#title{
+   width: 45%; 
+   height:42px; 
+   border-left: 1px solid black;
+   border-bottom:1px solid black;
+}
+#title span{
+   padding-top: 11px;
+   margin-right:10px; 
+   display:block;
+}
+#description{
+   width: 45%; 
+   height:115px; 
+   border-left: 1px solid black;
+   border-bottom:1px solid black;
+}
+#description span{
+   padding-top: 11px;
+   margin-right:10px; 
+   display:block;
+}
+#price{
+  width: 45%; 
+  height:35px; 
+  border-left: 1px solid black;
+  border-bottom:1px solid black;
+}
+#price span{
+   padding-top: 10px;
+   margin-right:10px; 
+   display:block;
+}
+#Address{
+   width: 45%; 
+   height:82px; 
+   border-left: 1px solid black;
+}
+#Address span{
+  padding-top: 10px;
+  margin-right:10px; 
+  display:block;
+}
+#comment{
+   width: 100%; 
+   height:40px; 
+   border-top: 1px solid black;
+}
+#comment span{
+   padding-top: 10px;
+   margin-right:10px; 
+   display:block;
 }
