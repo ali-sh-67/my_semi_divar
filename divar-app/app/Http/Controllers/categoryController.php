@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreRequest;
 
 class categoryController extends Controller
 {
@@ -37,7 +38,7 @@ class categoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $request->validate([
             'name' => 'bail|required|unique:categorys|',
@@ -45,6 +46,9 @@ class categoryController extends Controller
             'parent_id' => 'bail|regex:(^[0-9]*$)|nullable',
             'icon'=> 'bail|nullable'
         ]);
+        // $request->validate([
+           
+        // ]);
         $category = new Category;
         $category->name = $request->name;
         $category->name_en = $request->name_en;
@@ -92,7 +96,9 @@ class categoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+    public function update (StoreRequest $request, $id)
     {
         $category = category::where('user_id', Auth::user()->id)->where('id', $id)->first();
         $request->validate([

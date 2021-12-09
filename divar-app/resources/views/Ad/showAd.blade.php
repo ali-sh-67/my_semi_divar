@@ -9,6 +9,7 @@
       آدرس :{{$id->address}}<br>
       قیمت :{{$id->price}}<br>
      تاریخ ایجاد:{{$id->created_at}}<br>
+     تصویر:<img src="{{asset('images/' .$id->image_url)}}">
      
      
 
