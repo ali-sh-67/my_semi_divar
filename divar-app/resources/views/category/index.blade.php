@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="{{asset('css/category/index.css')}}">
     <div class="categories_list">
-        @if($message_delete)
+        @if(isset($message_delete))
         {{$message_delete}}
         @endif
         @foreach ($categories as $category)
