@@ -14,9 +14,9 @@
         <div id="header_right">
             <div id="header_right_top" >
                 <span id="lock" ></span>
-                  <a class="yekan login" href="">  ورود   </a>
+                  <a class="yekan login" href="">ورود</a>
                 <span id="register"></span>
-                  <a  class="reg" href=""> ثبت نام کنید   </a>
+                  <a  class="yekan reg" href=""> ثبت نام کنید   </a>
             </div>
 
 
@@ -37,24 +37,30 @@
 <div id="main">
   
 @foreach($ads as $ad)
-    <div style="width:100%;height:380px;border: 1px solid black; ">
-      <div style="width: 100%; height:29px; border-bottom:1px solid black">
-        <span style="margin-top: 11px;margin-right:10px; display:block;">آگهی:  </span>
+    <div id="create" >
+      <div id="advert" >
+        <span id="nameAdvert">کد آگهی: {{$ad->id}} </span>
       </div>
-      <div style="width: 45%; height:42px; border-left: 1px solid black;border-bottom:1px solid black">
-        <span style="padding-top: 11px;margin-right:10px; display:block;">عنوان:</span>
+
+      <div id="img" >
+        <img id="showImg"  src="{{asset('images/' .$ad->image_url)}}">
       </div>
-      <div style="width: 45%; height:115px; border-left: 1px solid black;border-bottom:1px solid black">
-        <span style="padding-top: 11px;margin-right:10px; display:block;">توضیحات:</span>
+
+      <div id="title" >
+        <span >عنوان: {{$ad->title}}</span>
       </div>
-      <div style="width: 45%; height:35px; border-left: 1px solid black;border-bottom:1px solid black">
-        <span style="padding-top: 10px;margin-right:10px; display:block;">قیمت:</span>
+      <div id="description">
+        <span >توضیحات: {{$ad->description}}</span>
       </div>
-      <div style="width: 45%; height:82px; border-left: 1px solid black;">
-        <span style="padding-top: 10px;margin-right:10px; display:block;">آدرس:</span>
+      <div id="price" >
+        <span >قیمت: {{$ad->price}}</span>
       </div>
-      <div style="width: 100%; height:40px; border-top: 1px solid black;">
-        <span style="padding-top: 10px;margin-right:10px; display:block;">کامنت:</span>
+      <div id="Address" >
+        <span >آدرس: {{$ad->address }}</span>
+      </div>
+      
+      <div id="comment" >
+        <span >کامنت:</span>
       </div>
       
     </div>
