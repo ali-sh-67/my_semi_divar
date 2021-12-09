@@ -13,11 +13,6 @@
                 <input name="name" placeholder="Enter title"  value="{{$category->name}}"></input>
             </div>
             <div>
-                parent_id
-                <input name="parent_id" value="{{ $category->parent_id }}"></input>
-            </div>
-
-            <div>
                 font_icon
                 <input name="icon" value="{{ $category->icon }}"></input>
             </div>
