@@ -37,7 +37,7 @@ Route::group(['prefix' => '/category'], function () {
     Route::get('/edit/{id}', [categoryController::class, 'edit'])->name('category.edit')->middleware('auth');
     Route::post('/update/{id}', [categoryController::class, 'update'])->name('category.update')->middleware('auth');
     Route::post('/store', [categoryController::class, 'store'])->name('category.store')->middleware('auth');
-    Route::get('/delete/{}', [categoryController::class, 'destroy'])->name('category.delete')->middleware('auth');
+    Route::get('/delete/{id}', [categoryController::class, 'destroy'])->name('category.delete')->middleware('auth');
 
 });
 Auth::routes();

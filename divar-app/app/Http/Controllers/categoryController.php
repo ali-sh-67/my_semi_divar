@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreRequest;
 
 class categoryController extends Controller
@@ -15,8 +16,8 @@ class categoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories=category::root()->get();
-        return view('category.index')->with('categories',$categories);
+        $categories = category::root()->get();
+        return view('category.index')->with('categories', $categories);
 
     }
 
@@ -27,8 +28,8 @@ class categoryController extends Controller
      */
     public function create(Request $request)
     {
-//        return 'create';
-        return view('category.create');
+        $categories = category::all();
+        return view('category.create')->with(['categories' => $categories]);
     }
 
     /**
@@ -39,6 +40,12 @@ class categoryController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        $request->validate([
+            'name' => 'bail|required|unique:categorys|',
+            'name_en' => 'bail|nullable|unique:categorys|regex:([a-z]*)',
+            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable',
+            'icon'=> 'bail|nullable'
+        ]);
         // $request->validate([
            
         // ]);
@@ -46,12 +53,13 @@ class categoryController extends Controller
         $category->name = $request->name;
         $category->name_en = $request->name_en;
         $category->parent_id = $request->parent_id;
+        $category->icon = $request->icon;
+        $category->user_id = Auth::user()->id;
         if ($category->save()) {
-            return view('category.store')->with(['category' => $category]);
-
-            $this->validate($request, [
-                'name' => 'required|min:1|max:70|string|unique:categorys',
-            ]);
+            $categories = category::root()->get();
+            return view('category.index')->with(['categories' => $categories]);
+        }else {
+            return 'not save';
         }
         return; //422
 
@@ -63,10 +71,10 @@ class categoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return 'show_category';
-    }
+//    public function show($id)
+//    {
+//        return 'show_category';
+//    }
 
     /**
      * Show the form for editing the specified resource.
@@ -76,8 +84,9 @@ class categoryController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        $category=category::find($id);
-        return view('category.edit')->with('category',$category);
+        $category = category::find($id);
+        $categories=category::all();
+        return view('category.edit',compact('categories', 'category'));
     }
 
     /**
@@ -87,19 +96,26 @@ class categoryController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function update (StoreRequest $request, $id)
     {
-        $category = category::where('id', $id)->first();
+        $category = category::where('user_id', Auth::user()->id)->where('id', $id)->first();
+        $request->validate([
+            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable|not_in:' . $category->id
+        ]);
 
         if ($category->id != $request->parent_id) {
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
             if ($category->save()) {
 
-                $categories=category::root()->get();
-                return view('category.index')->with('categories',$categories);
+                $categories = category::root()->get();
+                return view('category.index')->with('categories', $categories);
+            }else {
+                redirect(view('category.edit')); // 422
             }
-            redirect(view('category.edit')); // 422
+
         }
 
         return; // 401
@@ -113,6 +129,17 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        return 'destroy_category';
+        $destroy_category = category::where('user_id', Auth::user()->id)->where('id', $id)->first();
+        if ($destroy_category) {
+            $destroy_category->delete();
+            $message_delete='The category was successfully deleted';
+            $categories = category::root()->get();
+            return view('category.index',compact('categories', 'message_delete'));
+        } else {
+            return 'Sorry, the category could not be deleted. Please try again';
+        }
+
     }
+
+
 }
