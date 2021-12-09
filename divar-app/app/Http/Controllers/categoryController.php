@@ -40,14 +40,6 @@ class categoryController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $request->validate([
-            'name' => 'bail|required|unique:categorys|',
-            'name_en' => 'bail|nullable|unique:categorys|regex:([a-z]*)',
-            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable',
-            'icon'=> 'bail|nullable'
-        ]);
-        // $request->validate([
-           
         // ]);
         $category = new Category;
         $category->name = $request->name;
