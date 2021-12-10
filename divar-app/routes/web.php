@@ -19,10 +19,13 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/Ad/createAd', [AdsController::class, 'createAd'])->name('createAd')->middleware('auth');
 Route::post('/Ad/storeAd', [AdsController::class, 'storeAd'])->name('storeAd')->middleware('auth');
-Route::get('/Ad/pageAd', [AdsController::class, 'indexAd'])->name('indexAd')->middleware('auth');
+Route::get('/Ad/pageAd', [AdsController::class, 'indexAd'])->name('indexAd')->middleware('auth');;
 Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd')->middleware('auth');
 Route::get('/Ad/deleteAd/{id}',[AdsController::class, 'deleteAd'])->name('deleteAd')->middleware('auth');
 Route::get('/Ad/editAd/{id}',[AdsController::class, 'editAd'])->name('editAd')->middleware('auth');
