@@ -13,7 +13,7 @@ class AdsController extends Controller
     {  
         $users = Auth::user()->name;            
         $id = Auth::user()->id;       
-         $ads = Ad::where('user_id',$id)->get();
+         $ads = Ad::where('user_id',$id)->paginate(5);
         return view('Ad.pageAd')->with(['ads' => $ads]);
     }
 
