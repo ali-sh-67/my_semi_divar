@@ -6,8 +6,11 @@
 <title>صفحه اصلی دیوار</title>
 <script src="js/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 </head>
+
 <body class="body" >
+
 
 <header class="header" >
     <div id="myheader" >
@@ -34,7 +37,9 @@
     </div>
   
 </header>
+<nav id="nav" ></nav>
 <div id="main">
+
   
 @foreach($ads as $ad)
     <div id="create" >
@@ -53,29 +58,34 @@
         <span >توضیحات: {{$ad->description}}</span>
       </div>
       <div id="price" >
-        <span >قیمت: {{$ad->price}}</span>
+        <span >قیمت: </span>
       </div>
       <div id="Address" >
         <span >آدرس: {{$ad->address }}</span>
       </div>
-      
+
       <div id="comment" >
-        <span >کامنت:</span>
+        <span id="com_span" >کامنت:</span>
+        <div id="com_div">
+         <input id="com_input" type="submit" value="ارسال پیام">
+
+        </div>
+        
       </div>
       
-    </div>
+       
+        
+      
+      
+    </div>    
 @endforeach
+  <div id="number" >
+  {{ $ads->links() }}  
+  </div>
   
-
-
-
-
-
-</div>
+  </div>
+  <div id="nav_footer" > </div>
+  <div id="footer" ></div>
 
 </body>
-
-
-
-
 </html>
