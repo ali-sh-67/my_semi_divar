@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests\StoreRequest;
+
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests\updateRequest;
+
 class categoryController extends Controller
 {
     /**
@@ -40,7 +44,7 @@ class categoryController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        // ]);
+
         $category = new Category;
         $category->name = $request->name;
         $category->name_en = $request->name_en;
@@ -89,8 +93,8 @@ class categoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function update (StoreRequest $request, $id)
 
-    public function update (Request $request, $id)
     {
 
         $category = category::where('user_id', Auth::user()->id)->where('id', $id)->first();

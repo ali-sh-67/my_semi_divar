@@ -25,10 +25,12 @@ class storeRequest extends FormRequest
     {
 
         return [
+
             'name' => 'bail|required|unique:categorys|',
             'name_en' => 'bail|nullable|unique:categorys|regex:([a-z]*)',
             'parent_id' => 'bail|regex:(^[0-9]*$)|nullable',
             'icon'=> 'bail|nullable'
+
         ];
     }
 }

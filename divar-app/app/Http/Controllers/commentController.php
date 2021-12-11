@@ -16,15 +16,16 @@ class commentController extends Controller
 
     }
     public function StoreComment(Request $request, $id){
-        // $user = Auth::user()->id;
-        $Ad = Auth::user()->id;
+
         
-        // $code=Ad::where('id', $id)->first()->id();
+        $Ad = Auth::user()->id;        
+      
         $comment=new comment([
-            'user_id'=>$Ad ,                    
+            'Ads_id'=>$id ,                    
             'description'=>$request->get('description'),           
             ]);
-            // dd($comment);
+            
+
             if ($comment->save()) {
              
                 return redirect(route('indexAd'));          

@@ -10,7 +10,9 @@ class comment extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-        'user_id',                
+
+        'Ads_id',                
+
         'description',       
         'created_at',
         'updated_at',
