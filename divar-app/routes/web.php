@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\commentController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +31,9 @@ Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd')-
 Route::get('/Ad/deleteAd/{id}',[AdsController::class, 'deleteAd'])->name('deleteAd')->middleware('auth');
 Route::get('/Ad/editAd/{id}',[AdsController::class, 'editAd'])->name('editAd')->middleware('auth');
 Route::post('/Ad/updateAd/{id}',[AdsController::class, 'updateAd'])->name('updateAd')->middleware('auth');
+
+Route::get('/Comment/create/{id}',[commentController::class, 'createComment'])->name('createComment');
+Route::post('/Comment/store/{id}',[commentController::class, 'StoreComment'])->name('StoreComment');
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
