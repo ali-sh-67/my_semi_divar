@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\ad;
 use App\Models\category;
+use App\Models\comment;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,11 @@ class AdsController extends Controller
     {  
         $users = Auth::user()->name;            
         $id = Auth::user()->id;       
-         $ads = Ad::where('user_id',$id)->get();
+        $ads = Ad::where('user_id',$id)->orderBy('id','Desc')->paginate(5);
+
+        // $coms=comment::all();
+        // dd($ads);
+        
         return view('Ad.pageAd')->with(['ads' => $ads]);
     }
 
@@ -57,8 +62,7 @@ class AdsController extends Controller
         
          if ($ad->save()) {
              
-            return redirect(route('indexAd'));
-          
+            return redirect(route('indexAd'));          
         }
         // return; //422
     }
@@ -84,17 +88,15 @@ class AdsController extends Controller
     }
     public function updateAd(Request $request, $id)
     {
-        $todo = Ad::where('id', $id)->first(); 
-              
-           
+        $todo = Ad::where('id', $id)->first();           
         $todo->title= $request->get('title');
         $todo->description= $request->get('description');
-        $todo->price= $request->get('price');          
-         
-         $todo->save(); 
-               
+        $todo->price= $request->get('price');         
+         $todo->save();                
          return redirect(route('indexAd'));   
     }
+   
+    
 
 
 

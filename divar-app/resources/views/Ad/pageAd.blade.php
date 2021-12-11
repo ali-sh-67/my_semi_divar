@@ -6,17 +6,20 @@
 <title>صفحه اصلی دیوار</title>
 <script src="js/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 </head>
+
 <body class="body" >
+
 
 <header class="header" >
     <div id="myheader" >
         <div id="header_right">
             <div id="header_right_top" >
                 <span id="lock" ></span>
-                  <a class="yekan login" href="">  ورود   </a>
+                  <a class="yekan login" href="">ورود</a>
                 <span id="register"></span>
-                  <a  class="reg" href=""> ثبت نام کنید   </a>
+                  <a  class="yekan reg" href=""> ثبت نام کنید   </a>
             </div>
 
 
@@ -34,42 +37,60 @@
     </div>
   
 </header>
+<nav id="nav" ></nav>
 <div id="main">
+
   
 @foreach($ads as $ad)
-    <div style="width:100%;height:380px;border: 1px solid black; ">
-      <div style="width: 100%; height:29px; border-bottom:1px solid black">
-        <span style="margin-top: 11px;margin-right:10px; display:block;">آگهی:  </span>
+
+    <div id="create" >
+      <div id="advert" >
+        <span id="nameAdvert">کد آگهی: {{$ad->id}} </span>
       </div>
-      <div style="width: 45%; height:42px; border-left: 1px solid black;border-bottom:1px solid black">
-        <span style="padding-top: 11px;margin-right:10px; display:block;">عنوان:</span>
+
+      <div id="img" >
+        <img id="showImg"  src="{{asset('images/' .$ad->image_url)}}">
       </div>
-      <div style="width: 45%; height:115px; border-left: 1px solid black;border-bottom:1px solid black">
-        <span style="padding-top: 11px;margin-right:10px; display:block;">توضیحات:</span>
+
+      <div id="title" >
+        <span >عنوان: {{$ad->title}}</span>
       </div>
-      <div style="width: 45%; height:35px; border-left: 1px solid black;border-bottom:1px solid black">
-        <span style="padding-top: 10px;margin-right:10px; display:block;">قیمت:</span>
+      <div id="description">
+        <span >توضیحات: {{$ad->description}}</span>
       </div>
-      <div style="width: 45%; height:82px; border-left: 1px solid black;">
-        <span style="padding-top: 10px;margin-right:10px; display:block;">آدرس:</span>
+      <div id="price" >
+        <span >قیمت:{{$ad->price }} </span>
       </div>
-      <div style="width: 100%; height:40px; border-top: 1px solid black;">
-        <span style="padding-top: 10px;margin-right:10px; display:block;">کامنت:</span>
+      <div id="Address" >
+        <span >آدرس: {{$ad->address }}</span>
       </div>
+     
+
+      <div id="comment" >
+        <span id="com_span" >کامنت: 
+          <span style="margin-right:53px;margin-top:-30px;display:block;">
+         
+          </span>
+       
+
+
+        </span>
+        <div id="com_div">
+        <a href="{{route('createComment',$ad->id)}}" class="button"><span>کامنت بگذار!</span></a>
+        </div>        
+      </div> 
       
-    </div>
+
+    </div>    
+
 @endforeach
+  <div id="number" >
+  {{ $ads->links() }}  
+  </div>
   
-
-
-
-
-
-</div>
+  </div>
+  <div id="nav_footer" > </div>
+  <div id="footer" ></div>
 
 </body>
-
-
-
-
 </html>
