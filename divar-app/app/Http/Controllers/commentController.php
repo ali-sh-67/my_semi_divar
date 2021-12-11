@@ -16,6 +16,7 @@ class commentController extends Controller
 
     }
     public function StoreComment(Request $request, $id){
+
         
         $Ad = Auth::user()->id;        
       
@@ -24,6 +25,7 @@ class commentController extends Controller
             'description'=>$request->get('description'),           
             ]);
             
+
             if ($comment->save()) {
              
                 return redirect(route('indexAd'));          

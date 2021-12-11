@@ -1,0 +1,68 @@
+.categories_list {
+    width: 20%;
+    background-color:#dbdbdb;
+
+}
+/*.categories_list a {*/
+/*color: #565e64;*/
+/*}*/
+div .name{
+    margin-right: 20px;
+}
+div .child{
+    margin-right: 50px;
+}
+div .subchild{
+    margin-right: 100px;
+}
+div .sub1child{
+     margin-right: 150px;
+ }
+div .sub2child{
+    margin-right: 200px;
+}
+.category{
+}
+.category div{
+    display: inline;
+}
+.child{
+
+}
+.child div{
+    display: inline;
+}
+.subchild div{
+    display: inline;
+}
+.sub1child div{
+    display: inline;
+}
+.sub2child div{
+    display: inline;
+}
+.name a{
+    color: #565e64;
+}
+.create a{
+    color: dodgerblue;
+    font-size: 8px;
+}
+.edit a{
+    color: green;
+    font-size: 8px;
+}
+.delete a{
+    color: darkred;
+    font-size: 8px;
+}
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+

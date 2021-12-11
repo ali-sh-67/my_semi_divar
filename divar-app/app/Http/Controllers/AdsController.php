@@ -14,6 +14,7 @@ class AdsController extends Controller
         $users = Auth::user()->name;            
         $id = Auth::user()->id;       
         $ads = Ad::where('user_id',$id)->orderBy('id','Desc')->paginate(5);
+
         return view('Ad.pageAd')->with(['ads' => $ads]);
     }
 
@@ -24,14 +25,17 @@ class AdsController extends Controller
 
    public function storeAd(Request $request)
     {
+
         $newImageName =time() . '-' . $request->name . '.' . $request->image_url->extension();
         // $request->image_url->extension();
         $request->image_url->move(public_path('images'),$newImageName);
+
 
         $user = Auth::user()->id;
         $category = Auth::user()->id;
         
         $ad=new Ad([
+
             'user_id'=>$user,
             'category_id'=>$category,
             'title'=> $request->get('title'),
@@ -40,13 +44,13 @@ class AdsController extends Controller
             'price'=>$request->get('price'),
             'address'=>$request->get('address'),
             'phone_number_ads'=> $request->get('phone_number_ads'),
+
         ]);
         
         
          if ($ad->save()) {
              
-            return redirect(route('indexAd'));
-          
+            return redirect(route('indexAd'));          
         }
         // return; //422
     }
@@ -61,6 +65,7 @@ class AdsController extends Controller
         $users = Auth::user()->name;             
         return view('Ad.showAd')->with(['id'=>$id]);   
     }
+
     public function editAd(Ad $id)
     {   
         $users = Auth::user()->name;  
@@ -72,7 +77,10 @@ class AdsController extends Controller
         $todo->title= $request->get('title');
         $todo->description= $request->get('description');
         $todo->price= $request->get('price');         
-        $todo->save();                
-        return redirect(route('indexAd'));   
-    }    
+
+         $todo->save();                
+         return redirect(route('indexAd'));   
+    }   
+    
+
 }

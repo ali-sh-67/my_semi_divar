@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
-class storeRequest extends FormRequest
+use App\Http\Controllers\categoryController;
+class updateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,8 @@ class storeRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
-
-            'name' => 'bail|required|unique:categorys|',
-            'name_en' => 'bail|nullable|unique:categorys|regex:([a-z]*)',
-            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable',
-            'icon'=> 'bail|nullable'
-
+//            'parent_id' => 'bail|regex:(^[0-9]*$)|nullable|not_in:' . $category->id
         ];
     }
 }

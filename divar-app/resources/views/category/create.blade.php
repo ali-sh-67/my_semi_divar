@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-
+    <link rel="stylesheet" href="{{asset('css\category\create.css')}}">
     <div>
         @foreach($errors->all() as $error)
             {{$error}}
@@ -19,14 +19,20 @@
                 <div><input type="text" name="name_en" placeholder="نام انگلیسی را وارد کنید"></div>
             </div>
             <div>
-                <div><label>'Category parent_id'</label></div>
-                <div><input type="text" name="parent_id" placeholder="وابستگی دسته بندی را مشخص کنید"></div>
-            </div>
-            <div>
-                <div><input type="submit"></div>
-            </div>
+                <div><label>'font_icon'</label></div>
+                <div><input type="text" name="icon" value="fa fa-circle-o-notch" placeholder="فونت آیکون را وارد کنید"></div>
+                <div>
+
+                    <select name="parent_id">
+                        <option value="0">دسته اصلی</option>
+                        @foreach($categories as $category)
+                        <option  value="{{$category->id}}" >{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div>
+                    <div><input type="submit" value="ایجاد"></div>
+                </div>
         </form>
-
-
-    </div>
 @endsection
