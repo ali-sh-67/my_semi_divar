@@ -42,6 +42,7 @@
 
   
 @foreach($ads as $ad)
+
     <div id="create" >
       <div id="advert" >
         <span id="nameAdvert">کد آگهی: {{$ad->id}} </span>
@@ -58,26 +59,30 @@
         <span >توضیحات: {{$ad->description}}</span>
       </div>
       <div id="price" >
-        <span >قیمت: </span>
+        <span >قیمت:{{$ad->price }} </span>
       </div>
       <div id="Address" >
         <span >آدرس: {{$ad->address }}</span>
       </div>
+     
 
       <div id="comment" >
-        <span id="com_span" >کامنت:</span>
-        <div id="com_div">
-         <input id="com_input" type="submit" value="ارسال پیام">
-
-        </div>
-        
-      </div>
-      
+        <span id="com_span" >کامنت: 
+          <span style="margin-right:53px;margin-top:-30px;display:block;">
+         
+          </span>
        
-        
+
+
+        </span>
+        <div id="com_div">
+        <a href="{{route('createComment',$ad->id)}}" class="button"><span>کامنت بگذار!</span></a>
+        </div>        
+      </div> 
       
-      
+
     </div>    
+
 @endforeach
   <div id="number" >
   {{ $ads->links() }}  
