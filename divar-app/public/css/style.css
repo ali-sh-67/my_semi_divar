@@ -213,6 +213,23 @@ a {
    margin-left: -160px;
    margin-top: 130px;
 }
+.button{  
+   float: left;
+   margin-left: -160px;
+   margin-top: 108px;
+   border-radius: 16px;
+   background-color: #f4511e;
+   border: 2px solid hsl(214, 72%, 49%);
+   color: #FFFFFF;
+   text-align: center;
+   font-size: 17px;
+   padding: 6px 10px;
+   width: 100px;
+   transition: all 0.5s;
+   cursor: pointer;  
+   display: block;
+}
+
 #number{
    width: auto;
    height:auto;
