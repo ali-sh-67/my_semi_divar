@@ -52,9 +52,9 @@
                     <div><input style="width: 430px;margin-right:52px;" type="text" name="phone_number_ads" placeholder="تلفن"></div>
                 </div>
                 <div>
-                    <div style="margin-top: 10px;;">
-                    
-                    <input style="background-color:rgba(11,194,240,0.932)  ;border-radius:20%;width:100px;margin-right:223px;" type="submit" value="ارسال"></div>
+                    <div style="margin-top: 10px;;">                    
+                    <input style="background-color:rgba(11,194,240,0.932)  ;border-radius:20%;width:100px;margin-right:223px;" type="submit" value="ارسال">
+                </div>
                 </div>
             </form>
         </div>
@@ -64,8 +64,4 @@
 <!-- @endsection -->
 
 </body>
-
-
-
-
 </html>
