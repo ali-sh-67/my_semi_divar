@@ -76,9 +76,11 @@ class categoryController extends Controller
      */
     public function edit(Request $request, $id)
     {
+        $name_parent_id = category::find($id)->parent_id;
+        $name_parent_id=category::find($name_parent_id);
         $category = category::find($id);
         $categories=category::all();
-        return view('category.edit',compact('categories', 'category'));
+        return view('category.edit',compact('categories', 'category','name_parent_id'));
     }
 
     /**
@@ -102,6 +104,7 @@ class categoryController extends Controller
         if ($category->id != $request->parent_id) {
             $category->name = $request->name;
             $category->parent_id = $request->parent_id;
+            $category->icon = $request->icon;
             if ($category->save()) {
 
                 $categories = category::root()->get();
