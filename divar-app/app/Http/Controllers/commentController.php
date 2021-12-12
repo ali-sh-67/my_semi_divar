@@ -13,12 +13,12 @@ class commentController extends Controller
     public function createComment(Ad $id){
         // dd($id);
         return view('Comment.create')->with(['id'=>$id]);
-
     }
-    public function StoreComment(Request $request, $id){
 
+
+    public function StoreComment(Request $request, $id){        
         
-        $Ad = Auth::user()->id;        
+            
       
         $comment=new comment([
             'Ads_id'=>$id ,                    
