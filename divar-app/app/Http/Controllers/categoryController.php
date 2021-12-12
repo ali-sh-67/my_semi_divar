@@ -81,7 +81,11 @@ class categoryController extends Controller
     public function edit(Request $request, $id)
     {
         $name_parent_id = category::find($id)->parent_id;
-        $name_parent_id=category::find($name_parent_id);
+            if ($name_parent_id == 0) {
+                $name_parent_id=category::find($id);
+            }else {
+                $name_parent_id = category::find($name_parent_id);
+            }
         $category = category::find($id);
         $categories=category::all();
         return view('category.edit',compact('categories', 'category','name_parent_id'));
