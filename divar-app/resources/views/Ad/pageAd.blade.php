@@ -66,21 +66,40 @@
       </div>
      
 
-      <div id="comment" >
-        <span id="com_span" >کامنت: 
-          <span style="margin-right:53px;margin-top:-30px;display:block;">
-         
-          </span>
+      <div id="comment"  >
+        <span id="comm_span">کامنت:</span>
+        <div id="comm_space">
+        
+            @foreach($comms as $comm)
+              @if($comm->Ads_id == $ad->id)
+
+                @foreach($users as $user)  
+                @if(($user->id)%2==0)
+                  @if($comm->user_id == $user->id )          
+                    <span id="comm_user" style="color:green;" >{{$user->name}}:</span>
+                  @endif
+                @endif
+
+                @if(($user->id)%2==1)
+                  @if($comm->user_id == $user->id )          
+                    <span id="comm_user" style="color:red;" >{{$user->name}}:</span>
+                  @endif
+                @endif
+
+                 
+                @endforeach
+                
+                {{$comm->description }}
+                <br>
+              @endif
+            @endforeach
+        </div> 
        
-
-
-        </span>
-        <div id="com_div">
-        <a href="{{route('createComment',$ad->id)}}" class="button"><span>کامنت بگذار!</span></a>
-        </div>        
+        <button id="comm_button" > 
+          <a id="comm_button_a" href="{{route('createComment',$ad->id)}}" >کامنت بگذار!</a>
+        </button>         
+              
       </div> 
-      
-
     </div>    
 
 @endforeach
