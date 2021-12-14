@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>صفحه ایجاد آگهی</title>
+<title>صفحه ایجاد کامنت</title>
 <script src="js/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
 </head>
@@ -28,8 +28,8 @@
 
                
                 <div>
-                    <div><label style="margin-right:52px;">پیام:</label></div>
-                    <textarea style="width: 430px;height:260px;margin-right:52px;resize: none;" name="description" placeholder=" توضیحات" ></textarea>
+                    <div><label class="yekan" style="margin-right:52px;font-size:19px;">پیام:</label></div>
+                    <textarea class="yekan" style="width: 430px;height:260px;margin-right:52px;resize: none;font-size:19px;" name="description" placeholder=" توضیحات" ></textarea>
                     
                 </div>  
                
@@ -37,7 +37,7 @@
                 
                 <div>
                     <div style="margin-top: 10px;;">                    
-                    <input style="background-color:rgba(11,194,240,0.932)  ;border-radius:20%;width:100px;margin-right:223px;" type="submit" value="ارسال">
+                    <input class="yekan" style="background-color:rgba(11,194,240,0.932)  ;border-radius:20%;width:100px;height:32px;margin-right:223px;font-size:19px;" type="submit" value="ارسال">
                 </div>
                 
             </form>

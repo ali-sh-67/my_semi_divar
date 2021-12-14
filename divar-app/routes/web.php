@@ -27,14 +27,14 @@ Route::get('/', function () {
 
 Route::get('/Ad/createAd', [AdsController::class, 'createAd'])->name('createAd')->middleware('auth');
 Route::post('/Ad/storeAd', [AdsController::class, 'storeAd'])->name('storeAd')->middleware('auth');
-Route::get('/Ad/pageAd', [AdsController::class, 'indexAd'])->name('indexAd')->middleware('auth');;
+Route::get('/Ad/pageAd', [AdsController::class, 'indexAd'])->name('indexAd')->middleware('auth');
 Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd')->middleware('auth');
 
 Route::get('/Ad/deleteAd/{id}',[AdsController::class, 'deleteAd'])->name('deleteAd')->middleware('auth');
 Route::get('/Ad/editAd/{id}',[AdsController::class, 'editAd'])->name('editAd')->middleware('auth');
 Route::post('/Ad/updateAd/{id}',[AdsController::class, 'updateAd'])->name('updateAd')->middleware('auth');
 
-Route::get('/Comment/create/{id}',[commentController::class, 'createComment'])->name('createComment');
+Route::get('/Comment/create/{id}',[commentController::class, 'createComment'])->name('createComment')->middleware('auth');
 Route::post('/Comment/store/{id}',[commentController::class, 'StoreComment'])->name('StoreComment');
 
 
