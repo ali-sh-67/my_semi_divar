@@ -4,7 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-<title>صفحه ایجاد آگهی</title>
+<title>صفحه ایجاد کامنت</title>
 <script src="js/jquery-3.4.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
 </head>
