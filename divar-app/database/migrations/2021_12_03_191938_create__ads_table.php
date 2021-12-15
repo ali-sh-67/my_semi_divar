@@ -6,11 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateAdsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
+
     public function up()
     {
         Schema::create('ads', function (Blueprint $table) {
@@ -26,16 +23,12 @@ class CreateAdsTable extends Migration
             $table->string("address");
             $table->string("phone_number_ads");
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('category_id')->references('id')->on('categorys')->cascadeOnDelete()->cascadeOnUpdate();
+//            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+//            $table->foreign('category_id')->references('id')->on('categorys')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
         Schema::dropIfExists('ads');

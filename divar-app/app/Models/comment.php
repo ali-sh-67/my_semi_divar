@@ -10,9 +10,14 @@ class comment extends Model
     use HasFactory;
     protected $fillable = [
         'id',
+<<<<<<< HEAD
         'user_id',
         'Ads_id', 
         'description',       
+=======
+        'Ads_id',
+        'description',
+>>>>>>> ali
         'created_at',
         'updated_at',
     ];
@@ -27,3 +32,6 @@ class comment extends Model
     }
     
 }
+public function ad(){
+    return $this->belongs
+    }

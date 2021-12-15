@@ -21,7 +21,7 @@
             {{$error}}
         @endforeach
 
-        
+
         <div style="width: 515px;height:550px;margin-right:85px; ">
             <form  method="post"  action="{{route('storeAd')}}" enctype="multipart/form-data">
                 @csrf
@@ -33,7 +33,7 @@
                 <div>
                     <div><label style="margin-right:52px;">توضیحات:</label></div>
                     <textarea style="width: 430px;height:160px;margin-right:52px;resize: none;" name="description" placeholder=" توضیحات" ></textarea>
-                    
+
                 </div>
                 <div>
                     <div><label style="margin-right:52px;">تصویر:</label></div>
@@ -52,14 +52,12 @@
                     <div><input style="width: 430px;margin-right:52px;" type="text" name="phone_number_ads" placeholder="تلفن"></div>
                 </div>
                 <div>
-                    <div style="margin-top: 10px;;">                    
+                    <div style="margin-top: 10px;;">
                     <input style="background-color:rgba(11,194,240,0.932)  ;border-radius:20%;width:100px;margin-right:223px;" type="submit" value="ارسال">
                 </div>
                 </div>
             </form>
         </div>
-
-
     </div>
 <!-- @endsection -->
 

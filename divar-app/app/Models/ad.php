@@ -21,8 +21,10 @@ class ad extends Model
         'phone_number_ads',
         'created_at',
         'updated_at',
+        'favorite'
     ];
 
+<<<<<<< HEAD
     public function Category()
     {
         return $this->belongsTo(Category::class);
@@ -34,12 +36,16 @@ class ad extends Model
     }
 
     
+=======
+>>>>>>> ali
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class,'User_ad')->withPivot('favorite');
+    }
+
+
     protected $hidden = [
 
     ];

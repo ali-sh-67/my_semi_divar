@@ -23,7 +23,7 @@ class category extends Model
     ];
 
 
-    public function Ad()
+    public function ads()
     {
         return $this->hasMany(Ad::class);
     }

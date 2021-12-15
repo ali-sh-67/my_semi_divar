@@ -33,7 +33,7 @@
                     <div>
                         @foreach ($child->children as $subchild)
                             <div class="subchild">
-                                <div class="name"><a href=""><i class="{{$category->icon}}" aria-hidden="true"></i> {{$subchild->name}}</a></div>
+                                <div class="name"><a href=""><i class="{{$subchild->icon}}" aria-hidden="true"></i> {{$subchild->name}}</a></div>
                                 @if(Auth::user()->name=='admin' && Auth::user()->email=='admin@gmail.com')
                                 <div class="create"><a href="{{route('category.create',['id'=>$category->id])}}"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
                                 <div class="edit"><a href="{{route('category.edit',['id'=>$subchild->id])}}"><i
