@@ -27,12 +27,12 @@
                 <div id="search_top">
                     <input class="yekan input" type="text" placeholder="محصول ، دسته یا برند مورد نظر خود را جستجو کنید ... "/>
                     <span id="search_pic"></span>
-{{--                    @if (!empty($ad->favorite == 'favorite'))--}}
-                                            <form method="get" action="{{route('showfavoriteAd')}}">
-                                                @csrf
-                                                <input type="hidden" name="favorite" value="not"/>
-                                                <a onclick="this.parentNode.submit();">showfavorite</a>
-                    {{--                        </form>--}}
+                    {{--                    @if (!empty($ad->favorite == 'favorite'))--}}
+                    <form method="get" action="{{route('showfavoriteAd')}}">
+                        @csrf
+                        <input type="hidden" name="favorite" value="not"/>
+                        <a onclick="this.parentNode.submit();">showfavorite</a>
+                    </form>
                     {{--                    @endif--}}
                 </div>
 
@@ -46,8 +46,8 @@
 </header>
 <nav id="nav"></nav>
 <div id="main">
-   @if(!empty($fav))
-       @json($fav)
+    @if(!empty($fav))
+        @json($fav)
     @endif
 
 
@@ -74,107 +74,107 @@
                 <span>آدرس: {{$ad->address }}</span>
             </div>
 
-<<<<<<< HEAD
-  
-@foreach($ads as $ad)
+            <<<<<<< HEAD
 
-    <div id="create" >
-      <div id="advert" >
-        <span id="nameAdvert">کد آگهی: {{$ad->id}} </span>
-      </div>
+            @foreach($ads as $ad)
 
-      <div id="img" >
-        <img id="showImg"  src="{{asset('images/' .$ad->image_url)}}">
-      </div>
+                <div id="create">
+                    <div id="advert">
+                        <span id="nameAdvert">کد آگهی: {{$ad->id}} </span>
+                    </div>
 
-      <div id="title" >
-        <span >عنوان: {{$ad->title}}</span>
-      </div>
-      <div id="description">
-        <span >توضیحات: {{$ad->description}}</span>
-      </div>
-      <div id="price" >
-        <span >قیمت:{{$ad->price }} </span>
-      </div>
-      <div id="Address" >
-        <span >آدرس: {{$ad->address }}</span>
-      </div>
-     
+                    <div id="img">
+                        <img id="showImg" src="{{asset('images/' .$ad->image_url)}}">
+                    </div>
 
-      <div id="comment"  >
-        <span id="comm_span">کامنت:</span>
-        <div id="comm_space">
-        
-            @foreach($comms as $comm)
-              @if($comm->Ads_id == $ad->id)
+                    <div id="title">
+                        <span>عنوان: {{$ad->title}}</span>
+                    </div>
+                    <div id="description">
+                        <span>توضیحات: {{$ad->description}}</span>
+                    </div>
+                    <div id="price">
+                        <span>قیمت:{{$ad->price }} </span>
+                    </div>
+                    <div id="Address">
+                        <span>آدرس: {{$ad->address }}</span>
+                    </div>
 
-                @foreach($users as $user)  
-                @if(($user->id)%2==0)
-                  @if($comm->user_id == $user->id )          
-                    <span id="comm_user" style="color:green;" >{{$user->name}}:</span>
-                  @endif
-                @endif
 
-                @if(($user->id)%2==1)
-                  @if($comm->user_id == $user->id )          
-                    <span id="comm_user" style="color:red;" >{{$user->name}}:</span>
-                  @endif
-                @endif
+                    <div id="comment">
+                        <span id="comm_span">کامنت:</span>
+                        <div id="comm_space">
 
-                 
-                @endforeach
-                
-                {{$comm->description }}
-                <br>
-              @endif
+                            @foreach($comms as $comm)
+                                @if($comm->Ads_id == $ad->id)
+
+                                    @foreach($users as $user)
+                                        @if(($user->id)%2==0)
+                                            @if($comm->user_id == $user->id )
+                                                <span id="comm_user" style="color:green;">{{$user->name}}:</span>
+                                            @endif
+                                        @endif
+
+                                        @if(($user->id)%2==1)
+                                            @if($comm->user_id == $user->id )
+                                                <span id="comm_user" style="color:red;">{{$user->name}}:</span>
+                                            @endif
+                                        @endif
+
+
+                                    @endforeach
+
+                                    {{$comm->description }}
+                                    <br>
+                                @endif
+                            @endforeach
+                        </div>
+
+                        <button id="comm_button">
+                            <a id="comm_button_a" href="{{route('createComment',$ad->id)}}">کامنت بگذار!</a>
+                        </button>
+
+                    </div>
+                </div>
+
             @endforeach
-        </div> 
-       
-        <button id="comm_button" > 
-          <a id="comm_button_a" href="{{route('createComment',$ad->id)}}" >کامنت بگذار!</a>
-        </button>         
-              
-      </div> 
-    </div>    
+            <div id="number">
+                {{ $ads->links() }}
+            </div>
 
-@endforeach
-  <div id="number" >
-  {{ $ads->links() }}  
-  </div>
-  
-  </div>
-  <div id="nav_footer" > </div>
-  <div id="footer" ></div>
-=======
+        </div>
+        <div id="nav_footer"></div>
+        <div id="footer"></div>
+        =======
 
-            <div id="comment">
+        <div id="comment">
         <span id="com_span">کامنت:
           <span style="margin-right:53px;margin-top:-30px;display:block;"></span>
 
         </span>
 
-                <div>
-{{--                    @if (!empty($ad->pivot))--}}
-                        <form method="post" action="{{route('favoriteAd',['id'=>$ad->id])}}">
-                            @csrf
-                            <input type="hidden" name="favorite" value="favorite"/>
-                            <a onclick="this.parentNode.submit();">favorite</a>
-                        </form>
-{{--                    @endif--}}
+            <div>
+                {{--                    @if (!empty($ad->pivot))--}}
+                <form method="post" action="{{route('favoriteAd',['id'=>$ad->id])}}">
+                    @csrf
+                    <input type="hidden" name="favorite" value="favorite"/>
+                    <a onclick="this.parentNode.submit();">favorite</a>
+                </form>
+                {{--                    @endif--}}
 
-                </div>
-                <div id="com_div">
-                    <a href="{{route('createComment',$ad->id)}}" class="button"><span>کامنت بگذار!</span></a>
-                </div>
             </div>
-
-
+            <div id="com_div">
+                <a href="{{route('createComment',$ad->id)}}" class="button"><span>کامنت بگذار!</span></a>
+            </div>
         </div>
 
-    @endforeach
-    <div id="number">
-        {{--        {{ $ads->links() }}--}}
-    </div>
+
+</div>
+
+@endforeach
+<div id="number">
+    {{--        {{ $ads->links() }}--}}
+</div>
 
 </div>
 <div id="nav_footer"></div>
