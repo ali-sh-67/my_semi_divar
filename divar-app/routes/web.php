@@ -32,6 +32,8 @@ Route::get('/Ad/showAd/{id}', [AdsController::class, 'showAd'])->name('showAd')-
 Route::get('/Ad/deleteAd/{id}',[AdsController::class, 'deleteAd'])->name('deleteAd')->middleware('auth');
 Route::get('/Ad/editAd/{id}',[AdsController::class, 'editAd'])->name('editAd')->middleware('auth');
 Route::post('/Ad/updateAd/{id}',[AdsController::class, 'updateAd'])->name('updateAd')->middleware('auth');
+Route::post('/Ad/favoriteAd/{id}',[AdsController::class, 'favoriteAd'])->name('favoriteAd')->middleware('auth');
+Route::get('/Ad/showfavoriteAd',[AdsController::class, 'showfavoriteAd'])->name('showfavoriteAd')->middleware('auth');
 
 Route::get('/Comment/create/{id}',[commentController::class, 'createComment'])->name('createComment');
 Route::post('/Comment/store/{id}',[commentController::class, 'StoreComment'])->name('StoreComment');
@@ -42,7 +44,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->prefix('/category')->group( function () {
     Route::get('/index', [categoryController::class, 'index'])->name('category.index');
     Route::get('/create', [categoryController::class, 'create'])->name('category.create');
-    Route::get('/edit/{id}', [categoryController::class, 'edit'])->name('category.edit');
+    Route::get('/edit', [categoryController::class, 'edit'])->name('category.edit');
     Route::post('/update/{id}', [categoryController::class, 'update'])->name('category.update');
     Route::post('/store', [categoryController::class, 'store'])->name('category.store');
     Route::get('/delete/{id}', [categoryController::class, 'destroy'])->name('category.delete');

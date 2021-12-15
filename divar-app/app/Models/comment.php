@@ -10,11 +10,12 @@ class comment extends Model
     use HasFactory;
     protected $fillable = [
         'id',
-
-        'Ads_id',                
-
-        'description',       
+        'Ads_id',
+        'description',
         'created_at',
         'updated_at',
     ];
 }
+public function ad(){
+    return $this->belongs
+    }

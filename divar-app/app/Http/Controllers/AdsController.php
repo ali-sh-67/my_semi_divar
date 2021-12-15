@@ -4,23 +4,23 @@ namespace App\Http\Controllers;
 use App\Models\ad;
 use App\Models\category;
 use App\Models\comment;
+use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdsController extends Controller
 {
     public function indexAd(Request $request)
-    {  
-        $users = Auth::user()->name;            
-        $id = Auth::user()->id;       
-        $ads = Ad::where('user_id',$id)->orderBy('id','Desc')->paginate(5);
-
+    {
+        $ads = Ad::all();
         return view('Ad.pageAd')->with(['ads' => $ads]);
     }
 
    public function createAd()
-   {  
-       return view('Ad.createAd'); 
+   {
+       return view('Ad.createAd');
    }
 
    public function storeAd(Request $request)
@@ -33,7 +33,7 @@ class AdsController extends Controller
 
         $user = Auth::user()->id;
         $category = Auth::user()->id;
-        
+
         $ad=new Ad([
 
             'user_id'=>$user,
@@ -46,41 +46,59 @@ class AdsController extends Controller
             'phone_number_ads'=> $request->get('phone_number_ads'),
 
         ]);
-        
-        
+
+
          if ($ad->save()) {
-             
-            return redirect(route('indexAd'));          
+
+            return redirect(route('indexAd'));
         }
         // return; //422
     }
 
-    public function deleteAd(Ad $id)   
-    {    
+    public function deleteAd(Ad $id)
+    {
         $id->delete();
         return redirect(route('indexAd'));
-    }    
+    }
     public function showAd(Ad $id)
-    {         
-        $users = Auth::user()->name;             
-        return view('Ad.showAd')->with(['id'=>$id]);   
+    {
+        $users = Auth::user()->name;
+        return view('Ad.showAd')->with(['id'=>$id]);
     }
 
     public function editAd(Ad $id)
-    {   
-        $users = Auth::user()->name;  
-        return view('Ad.editAd')->with(['id'=>$id])->with(['users'=>$users]);            
+    {
+        $users = Auth::user()->name;
+        return view('Ad.editAd')->with(['id'=>$id])->with(['users'=>$users]);
     }
     public function updateAd(Request $request, $id)
     {
-        $todo = Ad::where('id', $id)->first();           
+        $todo = Ad::where('id', $id)->first();
         $todo->title= $request->get('title');
         $todo->description= $request->get('description');
-        $todo->price= $request->get('price');         
+        $todo->price= $request->get('price');
+         $todo->save();
+         return redirect(route('indexAd'));
+    }
 
-         $todo->save();                
-         return redirect(route('indexAd'));   
-    }   
-    
+public function favoriteAd (Request $request, $id){
+    $user=User::find(Auth::user()->id);
+//    $user->ads()->attach($ad,['favorite'=>'favorite']);
+        $user->ads()->toggle([$id=>['favorite'=> 'favorite']]);
+//    $user->ads()->updateExistingPivot($id,['favorite'=> 'favorite']);
 
+    $fav=User::find($user->id)->ads()->wherePivot('favorite','favorite')->get();
+    $ads=ad::all();
+return view('Ad.pageAd',compact('fav','ads'));
+}
+
+    public function showfavoriteAd (Request $request){
+        $user=User::find(Auth::user()->id);
+//        $ad=ad::find($id)->id;
+//        $user->ads()->detach($ad,['favorite'=>'favorite']);
+//        $user->ads()->updateExistingPivot($id,['favorite'=> 'not']);
+
+        $ads=User::find($user->id)->ads()->wherePivot('favorite','favorite')->get();
+        return view('Ad.showfavorite',['ads' => $ads]);
+    }
 }
