@@ -5,12 +5,12 @@
     @endforeach
 
     <div class="">
-{{$category->name}} ({{$category->parent_id}}) {{'id:' . $category->id}}
+        {{$category->name}} ({{$category->parent_id}}) {{'id:' . $category->id}}
         <form method="post" action="{{route('category.update', ['id'=>$category->id])}}">
             @csrf
             <div>
                 <lable>name</lable>
-                <input name="name" placeholder="Enter title"  value="{{$category->name}}"></input>
+                <input name="name" placeholder="Enter title" value="{{$category->name}}"></input>
             </div>
             <div>
                 font_icon
@@ -25,6 +25,7 @@
                     @endforeach
                 </select>
             </div>
-           <div><input type="submit" value="update"><div><a href="{{route('category.index')}}">back</a></div>
-    </div>
+            <div><input type="submit" value="update">
+                <div><a href="{{route('category.index')}}">back</a></div>
+            </div>
 @endsection

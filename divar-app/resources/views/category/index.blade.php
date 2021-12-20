@@ -10,11 +10,9 @@
             <div class="category">
                 <div class="name"><a href=""><i class="{{$category->icon}}" aria-hidden="true"></i> {{$category->name}}</a></div>
                 @if(Auth::user()->name=='admin' & Auth::user()->email=='admin@gmail.com')
-                <div class="create"><a href="{{route('category.create',['id'=>$category->id])}}"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
-                    <div class="edit"><a href="{{route('category.edit',['id'=>$category->id])}}"><i
-                                class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
-                    <div class="delete"><a href="{{route('category.delete',['id'=>$category->id])}}"><i
-                                class="fa fa-trash-o" aria-hidden="true"></i></a></div>
+                    <div class="create"><a href="{{route('category.create',['id'=>$category->id])}}"><i class="fa fa-plus" aria-hidden="true"></i></a></div>
+                    <div class="edit"><a href="{{route('category.edit',['id'=>$category->id])}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                    <div class="delete"><a href="{{route('category.delete',['id'=>$category->id])}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>
                 @endif
             </div>
             <div>

@@ -15,10 +15,10 @@ class AdsController extends Controller
 {
     public function indexAd(Request $request)
 <<<<<<< HEAD
-    {  
-        $users = DB::table('users')->get();  
-        // dd($users)  ;        
-        $id = Auth::user()->id;       
+    {
+        $users = DB::table('users')->get();
+        // dd($users)  ;
+        $id = Auth::user()->id;
         // $ads = Ad::where('user_id',$id)->orderBy('id','Desc')->paginate(5);
         $ads=DB::table('Ads')->orderBy('id','Desc')->paginate(5);
 
@@ -26,11 +26,11 @@ class AdsController extends Controller
 
         $unames=User::all();
 
-       
-        
-       
-        
-        
+
+
+
+
+
         // return view('Ad.pageAd')->with(['ads' => $ads])->with(['comms' => $comms])->with(['unames' => $unames]);
         return view('Ad.pageAd',compact('ads','comms','users'));
 =======
@@ -83,9 +83,9 @@ class AdsController extends Controller
     }
     public function showAd(Ad $id)
 <<<<<<< HEAD
-    {         
-        $users = Auth::user()->name;             
-        return view('Ad.showAd');   
+    {
+        $users = Auth::user()->name;
+        return view('Ad.showAd');
 =======
     {
         $users = Auth::user()->name;

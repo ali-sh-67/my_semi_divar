@@ -1,0 +1,78 @@
+{
+  "version" : "1.1",
+  "profiles" : [ {
+    "id" : "fa3bddc1-0aed-4c23-adcc-b61e050e215b",
+    "name" : "Laravel (PHP, BLADE)",
+    "keyNamingPattern" : "SNAKE_CASE_PATTERN",
+    "sink" : {
+      "id" : "2aac249c-4cbb-432a-ba64-2d5b8ea9531b",
+      "type" : "namespaced",
+      "translationsDirectory" : "$PROJECT_DIR$/divar-app/resources/lang",
+      "fileType" : "php",
+      "defaultLocale" : "en",
+      "namespaces" : [ "auth", "pagination", "passwords", "validation" ],
+      "outputFilenameTemplate" : "%locale%/%namespace%.php",
+      "nestingType" : "DOT",
+      "placeholderFormatterName" : "LARAVEL"
+    },
+    "sources" : [ {
+      "id" : "656716fa-dea9-4c2f-9844-01550bf0303d",
+      "type" : "php",
+      "scopeName" : "i18n Ally: Laravel/PHP source",
+      "scopePattern" : "file[bootcamp_project]:divar-app/app//*&&!file[bootcamp_project]:divar-app/app/Broadcasting//*&&!file[bootcamp_project]:divar-app/app/Console//*&&!file[bootcamp_project]:divar-app/app/Events//*&&!file[bootcamp_project]:divar-app/app/Exceptions//*&&!file[bootcamp_project]:divar-app/app/Models//*&&!file[bootcamp_project]:divar-app/app/Providers//*",
+      "replacementTemplate" : "trans('%namespace%.%key%', %map%)",
+      "skipDefaultNamespace" : false,
+      "sprintfMode" : false
+    }, {
+      "id" : "2d8b0308-10e4-43d4-a887-bb41c36b07d0",
+      "type" : "blade",
+      "scopeName" : "i18n Ally: Laravel/Blade templates",
+      "scopePattern" : "file[bootcamp_project]:divar-app/resources/views//*",
+      "replacementTemplate" : "trans('%namespace%.%key%', %map%)",
+      "inlineTagNames" : [ "a", "abbr", "acronym", "b", "bdi", "bdo", "big", "br", "cite", "code", "data", "del", "dfn", "em", "i", "img", "input", "ins", "kbd", "label", "mark", "meter", "output", "progress", "q", "ruby", "s", "samp", "slot", "small", "span", "strong", "sub", "sup", "time", "u", "tt", "var", "wbr" ],
+      "translatableAttributeNames" : [ "title", "alt", "placeholder", "label", "aria-label" ],
+      "skipDefaultNamespace" : false
+    } ]
+  }, {
+    "id" : "d0e5b281-22e9-497e-881b-0137d90ea334",
+    "name" : "Symfony (PHP, TWIG)",
+    "keyNamingPattern" : "SNAKE_CASE_PATTERN",
+    "sink" : {
+      "id" : "d96d3f7c-088a-40f3-b88a-ef007f64ad52",
+      "type" : "namespaced",
+      "translationsDirectory" : "$PROJECT_DIR$/divar-app/resources/lang",
+      "fileType" : "php",
+      "defaultLocale" : "en",
+      "namespaces" : [ "auth", "pagination", "passwords", "validation" ],
+      "outputFilenameTemplate" : "%locale%/%namespace%.php",
+      "nestingType" : "DOT",
+      "placeholderFormatterName" : "SYMFONY_REPLACEMENT"
+    },
+    "sources" : [ {
+      "id" : "fc549a3b-b2b2-475e-b272-ba161f3dd100",
+      "type" : "php",
+      "scopeName" : "i18n Ally: Symfony/PHP source",
+      "scopePattern" : "file[bootcamp_project]:divar-app/src//*&&!file[bootcamp_project]:divar-app/src/DataFixtures//*",
+      "replacementTemplate" : "$this->translator->trans('%key%', %map%, '%namespace%')",
+      "skipDefaultNamespace" : true,
+      "sprintfMode" : false
+    }, {
+      "id" : "9969ac86-1b3d-4822-8fdc-7a5705bc0d44",
+      "type" : "twig",
+      "scopeName" : "i18n Ally: Symfony/Twig templates",
+      "scopePattern" : "file[bootcamp_project]:divar-app/templates//*",
+      "replacementTemplate" : "trans(%map%, '%namespace%')",
+      "inlineTagNames" : [ "a", "abbr", "acronym", "b", "bdi", "bdo", "big", "br", "cite", "code", "data", "del", "dfn", "em", "i", "img", "input", "ins", "kbd", "label", "mark", "meter", "output", "progress", "q", "ruby", "s", "samp", "slot", "small", "span", "strong", "sub", "sup", "time", "u", "tt", "var", "wbr" ],
+      "translatableAttributeNames" : [ "title", "alt", "placeholder", "label", "aria-label" ],
+      "skipDefaultNamespace" : true
+    } ]
+  } ],
+  "ignores" : {
+    "valuesInProject" : [ "use strict" ],
+    "valuesInFile" : { },
+    "filesInProject" : [ ],
+    "unignoredFunctionNames" : [ ],
+    "unignoredFunctionArguments" : { },
+    "ignoredArrayKeys" : [ "class", "selector", "template", "middleware", "layout", "el", "component", "type", "name", "id", "key", "sql", "query", "dateFormat", "date", "condition" ]
+  }
+}
